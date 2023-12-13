@@ -1,5 +1,6 @@
 const button = require('../components/button');
 const answer = require('../components/answer');
+const information = require('../components/information');
 
 describe('Questionnaire', () => {
 
@@ -26,7 +27,14 @@ describe('Questionnaire', () => {
     answer.fillField('input#email', 'test@gmail.com');
     answer.fillField('input#zip-code', '00100');
     cy.get(button.submit).click();
+
     cy.url().should('include', '/sv-FI/ar-studies/fail/criteria?screenerId=');
+    cy.get(information.imageLetter).should('be.visible');
+    cy.get(information.heading).should('have.length', 1);
+    cy.get(information.paragraph).should('have.length', 2);
+    cy.get(information.popup).should('be.visible');
+
+    // TODO: Add check that email was really sent, e.g. by connecting to database or by API endpoint.
 
   })
 
