@@ -5,7 +5,7 @@ Requirements:
 
 Set up:
 - cd js_cypress_tests
-- npm ci / npm install
+- npm ci / npm install (if the install stucks, try to downgrade npm version: npm install -g npm@6)
 
 Run tests:
 - npx cypress run (headless mode, by default runs on the Electron browser)
